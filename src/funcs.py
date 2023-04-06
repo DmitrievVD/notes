@@ -21,8 +21,10 @@ def create_note(): # Создание заметки, тут мы делаем �
 
 def list_note(): # Распичатывает список
     arr = read_note()
-    for i in arr[:-1]:
-        print(f"{i[0]}. {i[1]}")
+    for j in arr:
+        print(j)
+    # for i in arr[:-1]:
+    #     print(f"{i[0]}. {i[1]}")
 
 def read_id_note(id): # Печать заметки (обращение по id)
     arr = read_note()
@@ -40,6 +42,7 @@ def edit_id_note(id):# Редактирование заметки (обраще
         if i[0] == id:
             i[1] = input("Введите название: ")
             i[2] = input("Введите тело заметки: ")
+            i[3] = str(datetime.datetime.now().today().replace(microsecond=0))
     arr.pop()
     edit_note(arr)
 

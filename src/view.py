@@ -22,12 +22,17 @@ def ui():
         elif com == "edit":
             list_note()
             edit = input("Введите ID: ")
-            edit_id_note(edit)
+            try: # Обернул в try except потому что с пустым вводом выдает ошибку
+                edit_id_note(edit)
+            except:
+                print("Ошибка при вводе!!!")
         elif com == "rm":
             list_note()
             edit = input("Введите ID: ")
-            remove_id_note(edit)
-
+            try:
+                remove_id_note(edit)
+            except:
+                print("Ошибка при вводе!!!")
 
 
         elif com == "exit":
