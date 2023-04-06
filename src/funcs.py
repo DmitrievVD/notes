@@ -1,12 +1,17 @@
 import datetime
-ID = 1
+from data_buse import save_note
 
-def create_note(ID = ID):
+
+id = 1
+
+def create_note(id = id):
     note = []
-    note.append(ID)
-    ID += 1
+    note.append(str(id))
+    id += 1
     note.append(input("Введите название заметки: "))
     note.append(input("Введите тело заметки: "))
-    note.append(datetime.datetime.now().today().replace(microsecond=0))
-    for i in note:
-        print(i)
+    note.append(str(datetime.datetime.now().today().replace(microsecond=0)))
+    result = [note]
+    save_note(result)
+
+create_note()
