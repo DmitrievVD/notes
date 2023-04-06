@@ -46,7 +46,7 @@ def edit_id_note(id):# Редактирование заметки (обраще
     arr.pop()
     edit_note(arr)
 
-def remove_id_note(id):# Редактирование заметки (обращение по id)
+def remove_id_note(id):# Удаление заметки (обращение по id)
     arr = read_note()
     for i in arr:
         if i[0] == id:
