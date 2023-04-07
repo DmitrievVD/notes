@@ -10,21 +10,22 @@ except:
 def create_note(): # Создание заметки, тут мы делаем список, заполняем его и записываем результат в фаил
     global id
     note = []
-    note.append(str(id))
+    note.append(id)
     id += 1
     note.append(input("Введите название заметки: "))
     note.append(input("Введите тело заметки: "))
-    note.append(str(datetime.datetime.now().today().replace(microsecond=0)))
+    note.append(datetime.datetime.now().today().replace(microsecond=0))
     result = [note] # Список в списке для нормального сохранения
     save_note(result) # Метод для записи
     print("Заметка успешно сохранена")
 
 def list_note(): # Распичатывает список
     arr = read_note()
-    for j in arr:
-        print(j)
-    # for i in arr[:-1]:
-    #     print(f"{i[0]}. {i[1]}")
+    # sorted(arr[:-1], key=lambda x: x[3])
+    # for j in arr:
+    #     print(j)
+    for i in arr[:-1]:
+        print(f"{i[0]}. {i[1]}")
 
 def read_id_note(id): # Печать заметки (обращение по id)
     arr = read_note()
@@ -51,6 +52,6 @@ def remove_id_note(id):# Удаление заметки (обращение п�
     for i in arr:
         if i[0] == id:
             arr.remove(i)
-            print(arr)
+            # print(arr)
             arr.pop()
             edit_note(arr)
